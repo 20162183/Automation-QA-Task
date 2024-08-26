@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2024-08-26T09:40:39.402Z",
+    "end": "2024-08-26T09:40:46.326Z",
+    "duration": 6924
+  },
+  "results": [
+    {
+      "uuid": "4c4d63f1-e9cf-4504-98ae-44a21e168684",
+      "title": "",
+      "fullFile": "cypress/e2e/user_registration_login.cy.js",
+      "file": "cypress/e2e/user_registration_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ac516a48-33e8-4031-97e9-6e6109846f69",
+          "title": "User Registration and Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register a new user and then log in successfully",
+              "fullTitle": "User Registration and Login should register a new user and then log in successfully",
+              "timedOut": null,
+              "duration": 6054,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the website\ncy.visit('https://www.demoblaze.com');\n// Click on Sign up button\ncy.get('#signin2').click();\n// Wait for the modal to appear\ncy.wait(500); // Adjust if necessary\n// Fill in the registration form\nconst randomUsername = (0, _utils.generateRandomUsername)();\ncy.get('#sign-username').type(randomUsername);\ncy.get('#sign-password').type(password);\n// Submit the registration form\ncy.get('button[onclick=\"register()\"]').click();\n// Verify that the registration was successful\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Sign up successful.');\n});\n// Wait for a bit to ensure the registration process is completed\ncy.wait(1000);\n// Log in with the newly registered user\ncy.get('#login2').click();\n// Wait for the login modal to appear\ncy.wait(500); // Adjust if necessary\n// Fill in the login form\ncy.get('#loginusername').type(randomUsername);\ncy.get('#loginpassword').type(password);\n// Submit the login form\ncy.get('button[onclick=\"logIn()\"]').click();\n// Verify that the login was successful\ncy.get('#nameofuser').should('contain.text', `Welcome ${randomUsername}`);",
+              "err": {},
+              "uuid": "c6afd727-7f9a-4a17-8ee6-517bfbe937d3",
+              "parentUUID": "ac516a48-33e8-4031-97e9-6e6109846f69",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c6afd727-7f9a-4a17-8ee6-517bfbe937d3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6054,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
